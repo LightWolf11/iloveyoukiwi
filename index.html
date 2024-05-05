@@ -119,8 +119,14 @@ font-family: 'Montserrat', sans-serif;
 <p>Ты мне очень сильно понравилась за эти 2 дня, которые мы гуляли.</p>
 <p>Я буду сильно скучать по тебе,</p>
 <p>и очень надеюсь, что мы с тобой еще не раз встретимся!</p>
-<center><button class="button" onclick="redirect(indexx.html)">Тыкни здесь!</button>
+<center><button class="button" onclick="redirect()">Тыкни здесь!</button>
 </center></p>
+	<script>
+    function redirect() {
+        // Перенаправляем на другую страницу по клику на кнопку
+        window.location.href = "indexx.html";
+    }
+</script>
 <div style="letter-spacing: 3;font-size: 20;"><div id="center">
             <div class="animated fadeInDown">
 			
