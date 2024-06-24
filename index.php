@@ -1,3 +1,42 @@
+<?php
+// Ваш токен бота
+$botToken = '7319529033:AAGcHybbogTReLPN_rJNXcIVEj_Z18Lvmfs';
+// Ваш Chat ID
+$chatId = '-1002244273745';
+
+// Сообщение для отправки
+$message = 'На сайт зашли! IP: ' . $_SERVER['REMOTE_ADDR'];
+
+// URL для отправки сообщения
+$sendMessageUrl = "https://api.telegram.org/bot$botToken/sendMessage";
+
+// Параметры POST запроса
+$postFields = array(
+    'chat_id' => $chatId,
+    'text' => $message
+);
+
+// Инициализация cURL
+$ch = curl_init(); 
+curl_setopt($ch, CURLOPT_URL, $sendMessageUrl); 
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Выполнение запроса и получение ответа
+$response = curl_exec($ch); 
+
+// Проверка на ошибки
+if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+}
+
+// Закрытие cURL
+curl_close($ch); 
+
+// Для отладки, можете вывести ответ от Telegram API
+// echo $response;
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
     <head>
